@@ -1,0 +1,21 @@
+server:
+  port: 9191
+  servlet:
+    context-path: /jsonb
+
+spring:
+  application:
+    name: jsonb-example
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/jsonb_test_db
+    username: jsonb
+    password: test
+    hikari:
+      maximum-pool-size: 10
+
+jsonb:
+  version: 0.0.1

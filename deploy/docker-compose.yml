@@ -1,0 +1,16 @@
+version: "1"
+
+services:
+
+################### DBs #######################
+
+  jsonb-test-db:
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-jsonb}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-test}
+    image: postgres:${POSTGRES_TAG-14.5}
+    container_name: jsonb-test-db
+    volumes:
+      - "./jsonbtest/db/create:/docker-entrypoint-initdb.d:ro"
+    ports:
+      - 5433:5432
